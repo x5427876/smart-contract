@@ -1,13 +1,17 @@
-_ = require('@nomiclabs/hardhat-ethers');
-
 hardhat = require('hardhat');
-chai = require('chai');
 
-describe("Hello World", () => {
-    it("should get the hello world", async () => {
-        const HW = await hardhat.ethers.getContractFactory("HelloWorld");
-        const hello = await HW.deploy();
+describe("TestGas", () => {
+    it("Test", async () => {
+        const Gas = await hardhat.ethers.getContractFactory("TestGas");
+        const gas = await Gas.deploy();
+        await gas.deployed();
 
-        chai.expect(await hello.hello()).to.equal("Hello, World");
+        for (let i = 0; i < 10; ++i) {
+            await gas.test1();
+            await gas.test2();
+            await gas.test3();
+            await gas.test4();
+            await gas.test5();
+        }
     });
 });

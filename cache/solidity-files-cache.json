@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\Gavin\\Documents\\jpegdegens\\contracts\\index.sol": {
-      "lastModificationDate": 1655211900490,
-      "contentHash": "d917e4c99ab59dde480a2003134b44f7",
+    "/Users/admin/Documents/smart-contract/contracts/index.sol": {
+      "lastModificationDate": 1655222378365,
+      "contentHash": "1ae120e07a1c0633ace83e05b151d160",
       "sourceName": "contracts/index.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -38,8 +38,8 @@
         "Counter"
       ]
     },
-    "C:\\Users\\Gavin\\Documents\\jpegdegens\\node_modules\\hardhat\\console.sol": {
-      "lastModificationDate": 1655208710996,
+    "/Users/admin/Documents/smart-contract/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1655217006012,
       "contentHash": "cc4777addd464ea56fa35b1c45df0591",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
@@ -71,6 +71,41 @@
       ],
       "artifacts": [
         "console"
+      ]
+    },
+    "/Users/admin/Documents/smart-contract/contracts/testGas.sol": {
+      "lastModificationDate": 1655224314559,
+      "contentHash": "cea7f27ed85c875124a9d63450d85b83",
+      "sourceName": "contracts/testGas.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TestGas"
       ]
     }
   }

@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import Counter from '../artifacts/contracts/index.sol/Counter.json';
 
 function getEth() {
     // @ts-ignore
@@ -30,17 +31,14 @@ async function run() {
     }
 
     const counter = new ethers.Contract(
-        process.env.CONTRACT_ADDRESS,
-        [
-            "function count() public",
-            "function getCounter() public view returns (uint32)",
-        ],
+        process.env.CONTRACT_ADDRESS,  // 目的錢包
+        Counter.abi, // 告訴 ether 合約中有哪些方法
         new ethers.providers.Web3Provider(getEth()).getSigner(),
     )
     
     const el = document.createElement("div");
-    async function setCounter() {
-        el.innerHTML = await counter.getCounter();
+    async function setCounter(count?) {
+        el.innerHTML = count || await counter.getCounter()
     }
     setCounter();
 
@@ -48,8 +46,11 @@ async function run() {
     btn.innerText = "increament";
     btn.onclick = async function() {
         await counter.count();
-        setCounter();
     }
+
+    counter.on(counter.filters.CounterInc(), function(count) {  // 類似於 js 的 eventListner，CounterInc 執行時就觸發
+        setCounter(count);
+    })
 
     document.body.appendChild(el);
     document.body.appendChild(btn);
